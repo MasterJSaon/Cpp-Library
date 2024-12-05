@@ -1,0 +1,19 @@
+# Ignore object files
+*.o
+*.a
+*.lo
+*.lai
+
+# Ignore executables (including the .out file and QtApp)
+*.out
+*.exe
+
+# Ignore core dumps
+core
+*.core
+
+# Ignore backup files
+*~
+
+# Ignore .vscode folder (Visual Studio Code settings)
+.vscode/
