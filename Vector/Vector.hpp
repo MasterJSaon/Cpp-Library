@@ -50,27 +50,33 @@ public:
 
     // Methods
      void push_back(const T& item) {
-          if (size == capacity) {
-               resize(capacity == 0 ? 1 : capacity * 2);
-          }
-          data[size++] = item;
+        if (size == capacity) {
+            resize(capacity == 0 ? 1 : capacity * 2);
+        }
+        data[size++] = item;
      }
 
      void push_front(const T& item) {
-          if (size == capacity) {
-               resize(capacity == 0 ? 1 : capacity * 2);
-          }
-          T* new_data = new T[capacity];
-          new_data[0] = item;
-          for (size_t i = 0; i < size; i++) {
-               new_data[i + 1] = data[i];
-          }
-          delete[] data;
-          data = new_data;
-          ++size;
-     }
+        if (size == capacity) {
+           resize(capacity == 0 ? 1 : capacity * 2);
+        }
+        T* new_data = new T[capacity];
+        new_data[0] = item;
+        for (size_t i = 0; i < size; i++) {
+            new_data[i + 1] = data[i];
+        }
+        delete[] data;
+        data = new_data;
+        ++size;
+    }
 
+    void clear() {
+        this -> size = 0;
+    }
 
+    void shrink_to_fit() {
+        this -> capacity = this -> size;
+    }
 
     void pop_back() {
         if (size == 0) {
@@ -90,14 +96,14 @@ public:
 
     // Operators
     T& operator[](size_t index) {
-        if (index >= size) {
+        if (index >= capacity) {
             throw std::out_of_range("Index is out of range");
         }
         return data[index];
     }
 
     const T& operator[](size_t index) const {
-        if (index >= size) {
+        if (index >= capacity) {
             throw std::out_of_range("Index is out of range");
         }
         return data[index];
