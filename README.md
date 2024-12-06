@@ -7,7 +7,7 @@ This repository aims to understand the nested classes in the standard c++ librar
 
 ## Library includes:
 - Custom vector class                   [✔️]
-- Custom string class                   [❌] - **soon**
+- Custom string class                   [✔️] - **will be expanded soon**
 - Custom WinApi window class            [❌] - **soon**
 
 # Future Plans
